@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>docker安装RabbitMQ</title>
+      <link href="/2022/07/01/docker-an-zhuang-rabbitmq/"/>
+      <url>/2022/07/01/docker-an-zhuang-rabbitmq/</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-shell"><code class="language-shell">docker run --name rabbitmq -p 5672:5672 -p 15672:15672 -d --restart=always rabbitmq:management</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> RabbitMQ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker安装redis</title>
+      <link href="/2022/07/01/docker-an-zhuang-redis/"/>
+      <url>/2022/07/01/docker-an-zhuang-redis/</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-shell"><code class="language-shell">docker run --name redis -p 6380:6379 -d --restart=always redis:latest redis-server --appendonly yes --requirepass "DD123456aa"</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker安装nacos</title>
+      <link href="/2022/07/01/docker-an-zhuang-nacos/"/>
+      <url>/2022/07/01/docker-an-zhuang-nacos/</url>
+      
+        <content type="html"><![CDATA[<h2 id="拉取docker镜像"><a href="#拉取docker镜像" class="headerlink" title="拉取docker镜像"></a>拉取docker镜像</h2><pre class=" language-shell"><code class="language-shell">docker pull nacos/nacos-server:1.4.2</code></pre><h2 id="创建临时容器（用来拷贝配置、日志使用）"><a href="#创建临时容器（用来拷贝配置、日志使用）" class="headerlink" title="创建临时容器（用来拷贝配置、日志使用）"></a>创建临时容器（用来拷贝配置、日志使用）</h2><pre class=" language-shell"><code class="language-shell">docker run -p 8848:8848 --name nacostest -d nacos/nacos-server:1.4.2</code></pre><h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><pre class=" language-shell"><code class="language-shell">mkdir -p /mydata/nacos/conf</code></pre><pre class=" language-shell"><code class="language-shell">mkdir -p /mydata/nacos/logs</code></pre><h2 id="配置文件复制"><a href="#配置文件复制" class="headerlink" title="配置文件复制"></a>配置文件复制</h2><pre class=" language-shell"><code class="language-shell">docker cp nacostest:/home/nacos/logs/ /mydata/nacos/</code></pre><pre class=" language-shell"><code class="language-shell">docker cp nacostest:/home/nacos/conf/ /mydata/nacos/</code></pre><h2 id="删除临时容器"><a href="#删除临时容器" class="headerlink" title="删除临时容器"></a>删除临时容器</h2><pre class=" language-shell"><code class="language-shell">docker stop nacostest</code></pre><pre class=" language-shell"><code class="language-shell">docker rm nacostest</code></pre><h2 id="创建并启动容器"><a href="#创建并启动容器" class="headerlink" title="创建并启动容器"></a>创建并启动容器</h2><pre class=" language-shell"><code class="language-shell">docker run -d \-e MODE=standalone \-e SPRING_DATASOURCE_PLATFORM=mysql \-e MYSQL_SERVICE_HOST=43.142.62.156 \-e MYSQL_SERVICE_PORT=3307 \-e MYSQL_SERVICE_USER=root \-e MYSQL_SERVICE_PASSWORD=DD123456aa \-e MYSQL_SERVICE_DB_NAME=nacos_config \-e TIME_ZONE='Asia/Shanghai' \-v /mydata/nacos/logs:/home/nacos/logs \-v /mydata/nacos/conf:/home/nacos/conf \-p 8848:8848 \--name nacos \--restart=always \nacos/nacos-server:1.4.2</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> nacos </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker安装MySQL</title>
+      <link href="/2022/07/01/docker-an-zhuang-mysql/"/>
+      <url>/2022/07/01/docker-an-zhuang-mysql/</url>
+      
+        <content type="html"><![CDATA[<h2 id="拉取5-7的镜像"><a href="#拉取5-7的镜像" class="headerlink" title="拉取5.7的镜像"></a>拉取5.7的镜像</h2><pre class=" language-shell"><code class="language-shell">docker pull mysql:5.7</code></pre><h2 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h2><pre class=" language-shell"><code class="language-shell">docker run --name mysql -p 3307:3306 --restart=always -e MYSQL_ROOT_PASSWORD=DD123456aa -d mysql:5.7</code></pre><h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><pre class=" language-shell"><code class="language-shell">docker exec -it mysql bash</code></pre><h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><pre class=" language-shell"><code class="language-shell">mysql -u root -p</code></pre><h2 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h2><pre class=" language-shell"><code class="language-shell">ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'DD123456aa';</code></pre><h2 id="刷新"><a href="#刷新" class="headerlink" title="刷新"></a>刷新</h2><pre class=" language-shell"><code class="language-shell">flush privileges;</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>centos常用命令</title>
+      <link href="/2022/07/01/centos-chang-yong-ming-ling/"/>
+      <url>/2022/07/01/centos-chang-yong-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="开启防火墙"><a href="#开启防火墙" class="headerlink" title="开启防火墙"></a>开启防火墙</h2><pre class=" language-shell"><code class="language-shell">systemctl start firewalld</code></pre><h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><pre class=" language-shell"><code class="language-shell">systemctl stop firewalld</code></pre><h2 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h2><pre class=" language-shell"><code class="language-shell">systemctl status firewalld </code></pre><h2 id="开放某个端口"><a href="#开放某个端口" class="headerlink" title="开放某个端口"></a>开放某个端口</h2><pre class=" language-shell"><code class="language-shell">firewall-cmd --zone=public --add-port=80/tcp --permanent</code></pre><h2 id="重新加载配置"><a href="#重新加载配置" class="headerlink" title="重新加载配置"></a>重新加载配置</h2><pre class=" language-shell"><code class="language-shell">firewall-cmd --reload</code></pre><h2 id="查看已经开放的端口"><a href="#查看已经开放的端口" class="headerlink" title="查看已经开放的端口"></a>查看已经开放的端口</h2><pre class=" language-shell"><code class="language-shell">firewall-cmd --zone=public --list-ports</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 命令 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> centos </tag>
+            
+            <tag> 命令 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>centos安装nginx</title>
+      <link href="/2022/07/01/centos-an-zhuang-nginx/"/>
+      <url>/2022/07/01/centos-an-zhuang-nginx/</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre class=" language-shell"><code class="language-shell">yum -y install gcc zlib zlib-devel pcre-devel openssl openssl-devel</code></pre><h2 id="下载稳定版本"><a href="#下载稳定版本" class="headerlink" title="下载稳定版本"></a>下载稳定版本</h2><pre class=" language-shell"><code class="language-shell">wget http://nginx.org/download/nginx-1.16.1.tar.gz</code></pre><h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><pre class=" language-shell"><code class="language-shell">tar -zxvf nginx-1.16.1.tar.gz</code></pre><h2 id="进入目录"><a href="#进入目录" class="headerlink" title="进入目录"></a>进入目录</h2><pre class=" language-shell"><code class="language-shell">cd nginx-1.16.1</code></pre><h2 id="配置编译"><a href="#配置编译" class="headerlink" title="配置编译"></a>配置编译</h2><pre class=" language-shell"><code class="language-shell">./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class=" language-shell"><code class="language-shell">make && make install</code></pre><h2 id="被安装的目录"><a href="#被安装的目录" class="headerlink" title="被安装的目录"></a>被安装的目录</h2><pre class=" language-shell"><code class="language-shell">/usr/local/nginx/</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> centos装机必备 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> centos </tag>
+            
+            <tag> nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>centos安装docker-compose</title>
+      <link href="/2022/07/01/centos-an-zhuang-docker-compose/"/>
+      <url>/2022/07/01/centos-an-zhuang-docker-compose/</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-shell"><code class="language-shell">curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose</code></pre><pre class=" language-shell"><code class="language-shell">chmod +x /usr/local/bin/docker-compose</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> centos装机必备 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> centos </tag>
+            
+            <tag> docker-compose </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>centos安装docker</title>
+      <link href="/2022/07/01/centos-an-zhuang-docker/"/>
+      <url>/2022/07/01/centos-an-zhuang-docker/</url>
+      
+        <content type="html"><![CDATA[<h2 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h2><pre class=" language-shell"><code class="language-shell">sudo yum remove docker \                  docker-client \                  docker-client-latest \                  docker-common \                  docker-latest \                  docker-latest-logrotate \                  docker-logrotate \                  docker-engine</code></pre><h2 id="安装配置相关依赖"><a href="#安装配置相关依赖" class="headerlink" title="安装配置相关依赖"></a>安装配置相关依赖</h2><pre class=" language-shell"><code class="language-shell">sudo yum install -y yum-utils</code></pre><pre class=" language-shell"><code class="language-shell">sudo yum-config-manager \    --add-repo \    https://download.docker.com/linux/centos/docker-ce.repo</code></pre><h2 id="安装docker引擎"><a href="#安装docker引擎" class="headerlink" title="安装docker引擎"></a>安装docker引擎</h2><pre class=" language-shell"><code class="language-shell">sudo yum install docker-ce docker-ce-cli containerd.io</code></pre><h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><pre class=" language-shell"><code class="language-shell">sudo systemctl start docker</code></pre><h2 id="设置开机自启动"><a href="#设置开机自启动" class="headerlink" title="设置开机自启动"></a>设置开机自启动</h2><pre class=" language-shell"><code class="language-shell">sudo systemctl enable docker</code></pre><h2 id="验证是否正确安装"><a href="#验证是否正确安装" class="headerlink" title="验证是否正确安装"></a>验证是否正确安装</h2><pre class=" language-shell"><code class="language-shell">sudo docker run hello-world</code></pre><h2 id="配置阿里云镜像加速"><a href="#配置阿里云镜像加速" class="headerlink" title="配置阿里云镜像加速"></a>配置阿里云镜像加速</h2><pre class=" language-shell"><code class="language-shell">sudo mkdir -p /etc/docker</code></pre><pre class=" language-shell"><code class="language-shell">sudo tee /etc/docker/daemon.json <<-'EOF'{  "registry-mirrors": ["https://9w9zqgnf.mirror.aliyuncs.com"]}EOF</code></pre><pre class=" language-shell"><code class="language-shell">sudo systemctl daemon-reload</code></pre><pre class=" language-shell"><code class="language-shell">sudo systemctl restart docker</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> centos装机必备 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> centos </tag>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
