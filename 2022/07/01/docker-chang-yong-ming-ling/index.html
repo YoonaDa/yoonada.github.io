@@ -4,11 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="centos安装docker, YoonaDa Blog">
-    <meta name="description" content="卸载旧版本sudo yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-               ">
+    <meta name="keywords" content="docker常用命令, YoonaDa Blog">
+    <meta name="description" content="docker启动docker服务systemctl start docker
+
+关闭docker服务systemctl stop docker
+
+重启docker服务systemctl restart docker
+
+搜索镜像docker ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +25,7 @@
 
     
 
-    <title>centos安装docker | YoonaDa Blog</title>
+    <title>docker常用命令 | YoonaDa Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -207,12 +210,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">centos安装docker</h1>
+                    <h1 class="description center-align post-title">docker常用命令</h1>
                 </div>
             </div>
         </div>
@@ -328,27 +331,18 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/centos/">
-                                <span class="chip bg-color">centos</span>
-                            </a>
-                        
                             <a href="/tags/docker/">
                                 <span class="chip bg-color">docker</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%91%BD%E4%BB%A4/">
+                                <span class="chip bg-color">命令</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/centos%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/" class="post-category">
-                                centos装机必备
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -366,14 +360,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    118
+                    502
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -393,40 +387,119 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h2><pre class=" language-shell"><code class="language-shell">sudo yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-engine
+                <h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h2 id="启动docker服务"><a href="#启动docker服务" class="headerlink" title="启动docker服务"></a>启动docker服务</h2><pre class=" language-shell"><code class="language-shell">systemctl start docker
 </code></pre>
-<h2 id="安装配置相关依赖"><a href="#安装配置相关依赖" class="headerlink" title="安装配置相关依赖"></a>安装配置相关依赖</h2><pre class=" language-shell"><code class="language-shell">sudo yum install -y yum-utils
+<h2 id="关闭docker服务"><a href="#关闭docker服务" class="headerlink" title="关闭docker服务"></a>关闭docker服务</h2><pre class=" language-shell"><code class="language-shell">systemctl stop docker
 </code></pre>
-<pre class=" language-shell"><code class="language-shell">sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+<h2 id="重启docker服务"><a href="#重启docker服务" class="headerlink" title="重启docker服务"></a>重启docker服务</h2><pre class=" language-shell"><code class="language-shell">systemctl restart docker
 </code></pre>
-<h2 id="安装docker引擎"><a href="#安装docker引擎" class="headerlink" title="安装docker引擎"></a>安装docker引擎</h2><pre class=" language-shell"><code class="language-shell">sudo yum install docker-ce docker-ce-cli containerd.io
+<h2 id="搜索镜像"><a href="#搜索镜像" class="headerlink" title="搜索镜像"></a>搜索镜像</h2><pre class=" language-shell"><code class="language-shell">docker search java
 </code></pre>
-<h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><pre class=" language-shell"><code class="language-shell">sudo systemctl start docker
+<h2 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h2><pre class=" language-shell"><code class="language-shell">docker pull java:8
 </code></pre>
-<h2 id="设置开机自启动"><a href="#设置开机自启动" class="headerlink" title="设置开机自启动"></a>设置开机自启动</h2><pre class=" language-shell"><code class="language-shell">sudo systemctl enable docker
+<h2 id="列出镜像"><a href="#列出镜像" class="headerlink" title="列出镜像"></a>列出镜像</h2><pre class=" language-shell"><code class="language-shell">docker images
 </code></pre>
-<h2 id="验证是否正确安装"><a href="#验证是否正确安装" class="headerlink" title="验证是否正确安装"></a>验证是否正确安装</h2><pre class=" language-shell"><code class="language-shell">sudo docker run hello-world
+<h2 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h2><ul>
+<li>指定名称删除镜像</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker rmi java:8
 </code></pre>
-<h2 id="配置阿里云镜像加速"><a href="#配置阿里云镜像加速" class="headerlink" title="配置阿里云镜像加速"></a>配置阿里云镜像加速</h2><pre class=" language-shell"><code class="language-shell">sudo mkdir -p /etc/docker
+<ul>
+<li>指定名称删除镜像（强制）</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker rmi -f java:8
 </code></pre>
-<pre class=" language-shell"><code class="language-shell">sudo tee /etc/docker/daemon.json <<-'EOF'
-{
-  "registry-mirrors": ["https://9w9zqgnf.mirror.aliyuncs.com"]
-}
-EOF
+<ul>
+<li>删除所有没有引用的镜像</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker rmi `docker images | grep none | awk '{print $3}'`
 </code></pre>
-<pre class=" language-shell"><code class="language-shell">sudo systemctl daemon-reload
+<ul>
+<li>强制删除所有镜像</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker rmi -f $(docker images)
 </code></pre>
-<pre class=" language-shell"><code class="language-shell">sudo systemctl restart docker
+<h2 id="列出容器"><a href="#列出容器" class="headerlink" title="列出容器"></a>列出容器</h2><ul>
+<li>列出运行中的容器</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker ps
+</code></pre>
+<ul>
+<li>列出所有容器</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker ps -a
+</code></pre>
+<h2 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h2><pre class=" language-shell"><code class="language-shell">docker stop $ContainerName(or $ContainerId)
+</code></pre>
+<h2 id="强制停止容器"><a href="#强制停止容器" class="headerlink" title="强制停止容器"></a>强制停止容器</h2><pre class=" language-shell"><code class="language-shell">docker kill $ContainerName
+</code></pre>
+<h2 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h2><pre class=" language-shell"><code class="language-shell">docker start $ContainerName
+</code></pre>
+<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><ul>
+<li>先查询出容器的pid</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker inspect --format "{{.State.Pid}}" $ContainerName
+</code></pre>
+<ul>
+<li>根据容器的pid进入容器</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">nsenter --target "$pid" --mount --uts --ipc --net --pid
+</code></pre>
+<h2 id="查看容器的IP地址"><a href="#查看容器的IP地址" class="headerlink" title="查看容器的IP地址"></a>查看容器的IP地址</h2><pre class=" language-shell"><code class="language-shell">docker inspect --format '{{ .NetworkSettings.IPAddress }}' $ContainerName
+</code></pre>
+<h2 id="将容器启动方式改为always"><a href="#将容器启动方式改为always" class="headerlink" title="将容器启动方式改为always"></a>将容器启动方式改为always</h2><pre class=" language-shell"><code class="language-shell"># 将容器启动方式改为always
+docker container update --restart=always $ContainerName
+</code></pre>
+<h2 id="同步宿主机时间到容器"><a href="#同步宿主机时间到容器" class="headerlink" title="同步宿主机时间到容器"></a>同步宿主机时间到容器</h2><pre class=" language-shell"><code class="language-shell">docker cp /etc/localtime $ContainerName:/etc/
+</code></pre>
+<h2 id="指定容器时区"><a href="#指定容器时区" class="headerlink" title="指定容器时区"></a>指定容器时区</h2><pre class=" language-shell"><code class="language-shell">docker run -p 80:80 --name nginx \
+-e TZ="Asia/Shanghai" \
+-d nginx:1.17.0
+</code></pre>
+<h2 id="查看容器资源占用状况"><a href="#查看容器资源占用状况" class="headerlink" title="查看容器资源占用状况"></a>查看容器资源占用状况</h2><ul>
+<li>查看指定容器资源占用状况，比如cpu、内存、网络、io状态</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker stats $ContainerName
+</code></pre>
+<ul>
+<li>查看所有容器资源占用情况</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker stats -a
+</code></pre>
+<h2 id="查看容器磁盘使用情况"><a href="#查看容器磁盘使用情况" class="headerlink" title="查看容器磁盘使用情况"></a>查看容器磁盘使用情况</h2><pre class=" language-shell"><code class="language-shell">docker system df
+</code></pre>
+<h2 id="执行容器内部命令"><a href="#执行容器内部命令" class="headerlink" title="执行容器内部命令"></a>执行容器内部命令</h2><pre class=" language-shell"><code class="language-shell">docker exec -it $ContainerName /bin/bash
+</code></pre>
+<h2 id="指定账号进入容器内部"><a href="#指定账号进入容器内部" class="headerlink" title="指定账号进入容器内部"></a>指定账号进入容器内部</h2><pre class=" language-shell"><code class="language-shell"># 使用root账号进入容器内部
+docker exec -it --user root $ContainerName /bin/bash
+</code></pre>
+<h2 id="查看所有网络"><a href="#查看所有网络" class="headerlink" title="查看所有网络"></a>查看所有网络</h2><pre class=" language-shell"><code class="language-shell">docker network ls
+</code></pre>
+<h2 id="创建外部网络"><a href="#创建外部网络" class="headerlink" title="创建外部网络"></a>创建外部网络</h2><pre class=" language-shell"><code class="language-shell">docker network create -d bridge my-bridge-network
+</code></pre>
+<h2 id="指定容器网络"><a href="#指定容器网络" class="headerlink" title="指定容器网络"></a>指定容器网络</h2><pre class=" language-shell"><code class="language-shell">docker run -p 80:80 --name nginx \
+--network my-bridge-network \
+-d nginx:1.17.0
+</code></pre>
+<h2 id="Docker容器清理"><a href="#Docker容器清理" class="headerlink" title="Docker容器清理"></a>Docker容器清理</h2><ul>
+<li>查看Docker占用的磁盘空间情况</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker system df
+</code></pre>
+<ul>
+<li>删除所有关闭的容器</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm
+</code></pre>
+<ul>
+<li>删除所有dangling镜像(没有Tag的镜像)</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+</code></pre>
+<ul>
+<li>删除所有dangling数据卷(即无用的 volume)</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell">docker volume rm $(docker volume ls -qf dangling=true)
 </code></pre>
 
                 
@@ -454,7 +527,7 @@ EOF
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.yoonada.cn/2022/07/01/centos-an-zhuang-docker/">https://blog.yoonada.cn/2022/07/01/centos-an-zhuang-docker/</a>
+                    <a href="https://blog.yoonada.cn/2022/07/01/docker-chang-yong-ming-ling/">https://blog.yoonada.cn/2022/07/01/docker-chang-yong-ming-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -492,12 +565,12 @@ EOF
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/centos/">
-                                    <span class="chip bg-color">centos</span>
-                                </a>
-                            
                                 <a href="/tags/docker/">
                                     <span class="chip bg-color">docker</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%91%BD%E4%BB%A4/">
+                                    <span class="chip bg-color">命令</span>
                                 </a>
                             
                         </div>
@@ -671,70 +744,18 @@ EOF
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/07/01/centos-an-zhuang-docker-compose/">
+                <a href="/2022/07/01/docker-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="centos安装docker-compose">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="docker常用命令">
                         
-                        <span class="card-title">centos安装docker-compose</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-01
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/centos%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/" class="post-category">
-                                    centos装机必备
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/centos/">
-                        <span class="chip bg-color">centos</span>
-                    </a>
-                    
-                    <a href="/tags/docker-compose/">
-                        <span class="chip bg-color">docker-compose</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/07/01/centos-an-zhuang-docker/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="centos安装docker">
-                        
-                        <span class="card-title">centos安装docker</span>
+                        <span class="card-title">docker常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -749,12 +770,8 @@ EOF
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/centos%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/" class="post-category">
-                                    centos装机必备
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            YoonaDa
                             
                         </span>
                     </div>
@@ -763,12 +780,61 @@ EOF
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/centos/">
-                        <span class="chip bg-color">centos</span>
-                    </a>
-                    
                     <a href="/tags/docker/">
                         <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">命令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/07/01/git-pei-zhi-ssh/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="git配置ssh">
+                        
+                        <span class="card-title">git配置ssh</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            YoonaDa
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Git/">
+                        <span class="chip bg-color">Git</span>
+                    </a>
+                    
+                    <a href="/tags/SSH/">
+                        <span class="chip bg-color">SSH</span>
                     </a>
                     
                 </div>

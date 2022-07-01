@@ -4,11 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="centos安装docker, YoonaDa Blog">
-    <meta name="description" content="卸载旧版本sudo yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-               ">
+    <meta name="keywords" content="git配置ssh, YoonaDa Blog">
+    <meta name="description" content="配置用户名git config --global user.name &#34;yoonada&#34;
+
+配置邮箱git config --global user.email &#34;m15602498163@163.com&#34;
+
+生成 ssh keyssh-k">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +23,7 @@
 
     
 
-    <title>centos安装docker | YoonaDa Blog</title>
+    <title>git配置ssh | YoonaDa Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -207,12 +208,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">centos安装docker</h1>
+                    <h1 class="description center-align post-title">git配置ssh</h1>
                 </div>
             </div>
         </div>
@@ -328,27 +329,18 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/centos/">
-                                <span class="chip bg-color">centos</span>
+                            <a href="/tags/Git/">
+                                <span class="chip bg-color">Git</span>
                             </a>
                         
-                            <a href="/tags/docker/">
-                                <span class="chip bg-color">docker</span>
+                            <a href="/tags/SSH/">
+                                <span class="chip bg-color">SSH</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/centos%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/" class="post-category">
-                                centos装机必备
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -366,7 +358,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    118
+                    59
                 </div>
                 
 
@@ -393,40 +385,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h2><pre class=" language-shell"><code class="language-shell">sudo yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-engine
+                <h2 id="配置用户名"><a href="#配置用户名" class="headerlink" title="配置用户名"></a>配置用户名</h2><pre class=" language-shell"><code class="language-shell">git config --global user.name "yoonada"
 </code></pre>
-<h2 id="安装配置相关依赖"><a href="#安装配置相关依赖" class="headerlink" title="安装配置相关依赖"></a>安装配置相关依赖</h2><pre class=" language-shell"><code class="language-shell">sudo yum install -y yum-utils
+<h2 id="配置邮箱"><a href="#配置邮箱" class="headerlink" title="配置邮箱"></a>配置邮箱</h2><pre class=" language-shell"><code class="language-shell">git config --global user.email "m15602498163@163.com"
 </code></pre>
-<pre class=" language-shell"><code class="language-shell">sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+<h2 id="生成-ssh-key"><a href="#生成-ssh-key" class="headerlink" title="生成 ssh key"></a>生成 ssh key</h2><pre class=" language-shell"><code class="language-shell">ssh-keygen -t rsa -b 4096 -C "m15602498163@163.com"
 </code></pre>
-<h2 id="安装docker引擎"><a href="#安装docker引擎" class="headerlink" title="安装docker引擎"></a>安装docker引擎</h2><pre class=" language-shell"><code class="language-shell">sudo yum install docker-ce docker-ce-cli containerd.io
-</code></pre>
-<h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><pre class=" language-shell"><code class="language-shell">sudo systemctl start docker
-</code></pre>
-<h2 id="设置开机自启动"><a href="#设置开机自启动" class="headerlink" title="设置开机自启动"></a>设置开机自启动</h2><pre class=" language-shell"><code class="language-shell">sudo systemctl enable docker
-</code></pre>
-<h2 id="验证是否正确安装"><a href="#验证是否正确安装" class="headerlink" title="验证是否正确安装"></a>验证是否正确安装</h2><pre class=" language-shell"><code class="language-shell">sudo docker run hello-world
-</code></pre>
-<h2 id="配置阿里云镜像加速"><a href="#配置阿里云镜像加速" class="headerlink" title="配置阿里云镜像加速"></a>配置阿里云镜像加速</h2><pre class=" language-shell"><code class="language-shell">sudo mkdir -p /etc/docker
-</code></pre>
-<pre class=" language-shell"><code class="language-shell">sudo tee /etc/docker/daemon.json <<-'EOF'
-{
-  "registry-mirrors": ["https://9w9zqgnf.mirror.aliyuncs.com"]
-}
-EOF
-</code></pre>
-<pre class=" language-shell"><code class="language-shell">sudo systemctl daemon-reload
-</code></pre>
-<pre class=" language-shell"><code class="language-shell">sudo systemctl restart docker
+<h2 id="生成路径"><a href="#生成路径" class="headerlink" title="生成路径"></a>生成路径</h2><pre class=" language-text"><code class="language-text">window的生成路径：C:\Users\用户\.ssh
+Linux的生成路径：/etc/ssh
 </code></pre>
 
                 
@@ -454,7 +420,7 @@ EOF
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.yoonada.cn/2022/07/01/centos-an-zhuang-docker/">https://blog.yoonada.cn/2022/07/01/centos-an-zhuang-docker/</a>
+                    <a href="https://blog.yoonada.cn/2022/07/01/git-pei-zhi-ssh/">https://blog.yoonada.cn/2022/07/01/git-pei-zhi-ssh/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -492,12 +458,12 @@ EOF
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/centos/">
-                                    <span class="chip bg-color">centos</span>
+                                <a href="/tags/Git/">
+                                    <span class="chip bg-color">Git</span>
                                 </a>
                             
-                                <a href="/tags/docker/">
-                                    <span class="chip bg-color">docker</span>
+                                <a href="/tags/SSH/">
+                                    <span class="chip bg-color">SSH</span>
                                 </a>
                             
                         </div>
@@ -675,13 +641,13 @@ EOF
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/01/centos-an-zhuang-docker-compose/">
+                <a href="/2022/07/01/docker-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="centos安装docker-compose">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="docker常用命令">
                         
-                        <span class="card-title">centos安装docker-compose</span>
+                        <span class="card-title">docker常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -696,12 +662,8 @@ EOF
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/centos%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/" class="post-category">
-                                    centos装机必备
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            YoonaDa
                             
                         </span>
                     </div>
@@ -709,12 +671,12 @@ EOF
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/centos/">
-                        <span class="chip bg-color">centos</span>
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
-                    <a href="/tags/docker-compose/">
-                        <span class="chip bg-color">docker-compose</span>
+                    <a href="/tags/%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">命令</span>
                     </a>
                     
                 </div>
@@ -725,16 +687,16 @@ EOF
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/01/centos-an-zhuang-docker/">
+                <a href="/2022/07/01/docker-an-zhuang-rabbitmq/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="centos安装docker">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="docker安装RabbitMQ">
                         
-                        <span class="card-title">centos安装docker</span>
+                        <span class="card-title">docker安装RabbitMQ</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -749,26 +711,21 @@ EOF
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/centos%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/" class="post-category">
-                                    centos装机必备
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            YoonaDa
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/centos/">
-                        <span class="chip bg-color">centos</span>
-                    </a>
-                    
                     <a href="/tags/docker/">
                         <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                    <a href="/tags/RabbitMQ/">
+                        <span class="chip bg-color">RabbitMQ</span>
                     </a>
                     
                 </div>
